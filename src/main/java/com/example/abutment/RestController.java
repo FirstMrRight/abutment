@@ -1,9 +1,11 @@
 package com.example.abutment;
 
 import com.alibaba.fastjson.JSON;
+import com.common.enums.ResponseEnum;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,12 +19,24 @@ import java.util.Map;
 @RequestMapping("/post")
 public class RestController {
     @PostMapping("/post")
-    public String post(HttpServletRequest request,
-                       @RequestParam(value = "email", required = false) String email,
-                       @RequestParam(value = "nick", required = false) String nick) {
+    public Boolean post(HttpServletRequest request,
+                        @RequestParam(value = "email", required = false) String email,
+                        @RequestParam(value = "nick", required = false) String nick) {
         Map<String, Object> map = new HashMap<>();
         map.put("code", "200");
         map.put("result", "add " + email + " # " + nick + " success!");
-        return JSON.toJSONString(map);
+        map.put("time", new Date());
+        ResponseEnum.CLIENT_USER_SAVE_PARAM_NULL.assertEquals(true, 1 > 2);
+//        return JSON.toJSONString(map);
+        return true;
     }
+
+
+    @GetMapping("/get")
+    public Boolean get() {
+        ResponseEnum.CLIENT_USER_SAVE_PARAM_NULL.assertNotNull(null);
+//        return JSON.toJSONString(map);
+        return true;
+    }
+
 }

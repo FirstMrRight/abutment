@@ -3,6 +3,7 @@ package com.example.abutment;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.example.abutment.Constant.UrlConstant;
+import com.example.abutment.entity.User;
 import com.example.abutment.entity.Weather;
 import com.example.abutment.utils.HttpUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -98,6 +99,12 @@ class AbutmentApplicationTests {
         String postForm = restTemplate.postForObject(url, request, String.class);
         System.out.println(postForm);
 
+        User user = new User();
+        user.setEmail("111");
+        user.setNick("222");
+        user.setTime(new Date());
+        String postForObject = restTemplate.postForObject(url, user, String.class);
+        log.warn(postForObject);
 
         // 使用方法二
 //        URI uri = URI.create(url);
