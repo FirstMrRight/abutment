@@ -2,6 +2,10 @@ package com.example.abutment;
 
 import com.alibaba.fastjson.JSON;
 import com.common.enums.ResponseEnum;
+import com.example.check.Foo;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,22 +25,34 @@ public class RestController {
     @PostMapping("/post")
     public Boolean post(HttpServletRequest request,
                         @RequestParam(value = "email", required = false) String email,
-                        @RequestParam(value = "nick", required = false) String nick) {
+                        @RequestParam(value = "nick", required = false) String nick) throws Exception {
         Map<String, Object> map = new HashMap<>();
         map.put("code", "200");
         map.put("result", "add " + email + " # " + nick + " success!");
         map.put("time", new Date());
-        ResponseEnum.CLIENT_USER_SAVE_PARAM_NULL.assertEquals(true, 1 > 2);
+        ResponseEnum.CLIENT_USER_SAVE_PARAM_NULL.assertEquals(true, false);
 //        return JSON.toJSONString(map);
-        return true;
+        throw new Exception("测试");
+//        return false;
     }
 
 
     @GetMapping("/get")
     public Boolean get() {
-        ResponseEnum.CLIENT_USER_SAVE_PARAM_NULL.assertNotNull(null);
+        ResponseEnum.CLIENT_USER_SAVE_PARAM_NULL.assertNotNull(null, "异常");
 //        return JSON.toJSONString(map);
         return true;
+    }
+
+    @RequestMapping("/foo")
+    public String foo(@Validated Foo foo, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            for (FieldError fieldError : bindingResult.getFieldErrors()) {
+                //...
+            }
+            return "fail";
+        }
+        return "success";
     }
 
 }

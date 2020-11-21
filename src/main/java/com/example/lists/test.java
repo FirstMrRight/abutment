@@ -1,9 +1,8 @@
 package com.example.lists;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import lombok.extern.slf4j.Slf4j;
+
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -28,6 +27,8 @@ import java.util.stream.Collectors;
 //        System.out.println("筛选前：" + userList);
 //        userList = userList.stream().filter(o -> o.getName().equals("ONE")).collect(Collectors.toList());
 //        System.out.println("筛选后：" + userList);
+
+@Slf4j
 public class test {
     public static void main(String[] args) {
         List<User> userList = new ArrayList<>();
@@ -50,19 +51,32 @@ public class test {
 //        String s = "[aasa, bbbbb]";
 //        String s1 = s.replaceAll("(?:\\[|null|\\]| +)", "");
 
-        ArrayList<String> arrayList = new ArrayList<String>();
-        arrayList.add("A");
-        arrayList.add("B");
-        arrayList.add("A");
-        arrayList.add("C");
-        arrayList.add("D");
+//        ArrayList<String> arrayList = new ArrayList<String>();
+//        arrayList.add("A");
+//        arrayList.add("B");
+//        arrayList.add("A");
+//        arrayList.add("C");
+//        arrayList.add("D");
 
-        Collections.replaceAll(arrayList, "A", null);
+//        Collections.replaceAll(arrayList, "A", null);
 
-        System.out.println(arrayList);
+//        System.out.println(arrayList);
 //        System.out.println(s1);
 
-    }
 
+//频繁调用Collection.contains() 反例
+        List<Object> list = new ArrayList<>();
+        Date start = new Date();
+        log.warn(start.toString());
+        for (int i = 0; i <= 12800; i++) {
+            //时间复杂度为O(n)
+            if (list.contains(i))
+                System.out.println("list contains " + i);
+
+        }
+        Date end = new Date();
+        log.warn(end.toString());
+//        log.info((end.toString()-start.toString());
+    }
 
 }
