@@ -1,0 +1,23 @@
+rsa:
+  encrypt:
+    debug: false # true��ʾ�������ԣ������ܡ������㿪��ʱ���ԣ�
+    publicKey: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDWVoGPPxAYp9A3R7sX1gZFVMm13AUIfn5gYBv8/lfn9RrzXqux6kDrh8ysvKRjd0YSqE3hYPgK0JLy7eweV4AcsuRKmDaXf/NUgCQbmCXQM7UfMZvwed4FKoYNnvbixwq8AV+HQQjGLip8FUDlizES8GRN7pEODbB+rruToRiGNQIDAQAB
+#      -----END PUBLIC KEY-----
+    # ����Ϊ�Լ��Ĺ�Կ
+    privateKey: MIICeQIBADANBgkqhkiG9w0BAQEFAASCAmMwggJfAgEAAoGBANZWgY8/EBin0DdH
+      uxfWBkVUybXcBQh+fmBgG/z+V+f1GvNeq7HqQOuHzKy8pGN3RhKoTeFg+ArQkvLt
+      7B5XgByy5EqYNpd/81SAJBuYJdAztR8xm/B53gUqhg2e9uLHCrwBX4dBCMYuKnwV
+      QOWLMRLwZE3ukQ4NsH6uu5OhGIY1AgMBAAECgYEAuitRRXblKEU6mYl4fG+t6rKG
+      sat1w7b7VgKkzM6u1A8VZaYpQ9PQp8PAh5kiwDJtbu85FjX/vIUF3nPBz2j5IFvP
+      sJrSVJkJ0hzRs/cWYeby5W3LsN4+hJNbYbPtLYJOLmGIlBJuLP3pTWQas8MfrKKN
+      QfQFUjZ2btICxvn2o4ECQQD/1pq2lcZzCIu0H53s0C9CdGQtDrN/OrIHBgDnhDuW
+      xxjXF9teHC4An9L0/Ofc0JGyXSq8ErNmPlbeEfy4R1ddAkEA1nkv0zlPpCOPpv9J
+      4CzhHuxOk909p2f3ehAeNHUu3PWCLL/GrSUwq10ZEIr5yY+MAfRWOdqy9moOBFr5
+      O8G0uQJBAKSUuhKbZ365EKZfcIjXpI9rsMYLnw1KBRzfj9VgC7WDf0df4Y85MZ7V
+      MjDIQaCbzB6iMMusfBxaHifeCmXB/0ECQQDRpXhoYrdE3TYIqbdPGM+d6KQOyc8A
+      mxJAEQ1Vfc6nUp1CnNvaWGYwvDpJ/2+X5WeYaXz35J3XXWgCPeMu1HSRAkEAgmhx
+      rwShZsjCeE+Pyqg5Wh/a/r2+Ek68m1B+GSnoR58kLv+lhIKnc6baRaHQJJdrtAzH
+      BlZVJ5JhfNVgQGCuJQ==
+    # ����Ϊ�Լ�����Կ
+server:
+  port: 8080

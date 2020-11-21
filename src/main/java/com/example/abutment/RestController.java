@@ -1,7 +1,11 @@
 package com.example.abutment;
 
-import com.alibaba.fastjson.JSON;
+import cn.shuibo.annotation.Encrypt;
 import com.common.enums.ResponseEnum;
+import com.common.enums.ResultCode;
+import com.common.resp.ResultMessage;
+import com.example.aop.Person;
+import com.example.aop.testAround;
 import com.example.check.Foo;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -55,4 +59,19 @@ public class RestController {
         return "success";
     }
 
+    @GetMapping("/aop")
+    public void aopPerson() {
+        Person person = new Person();
+        person.sayHi();
+    }
+
+
+    @Encrypt
+    @testAround(value = "1")
+    @GetMapping("/aopAround")
+    public ResultMessage aopAround() {
+        String test = "rsa";
+        //ResultMessage类使用@Accessors(chain = true)实现链式调用set方法
+        return ResultMessage.success().setMsg("成功").setData("over").setCode(200).setSign(test);
+    }
 }
