@@ -1,9 +1,37 @@
+# 启动端口
+spring:
+  jackson:
+    date-format: yyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  datasource:
+    url: jdbc:mysql://49.232.21.180:3306/abutment?useUnicode=true&zeroDateTimeBehavior=round&characterEncoding=UTF-8
+    username: root
+    password: 146118
+    driver-class-name: com.mysql.jdbc.Driver
+  redis:
+    database: 0
+    host: 49.232.21.180
+    lettuce:
+      pool:
+        max-active: 8   #最大连接数据库连接数,设 0 为没有限制
+        max-idle: 8     #最大等待连接中的数量,设 0 为没有限制
+        max-wait: -1ms  #最大建立连接等待时间。如果超过此时间将接到异常。设为-1表示无限制。
+        min-idle: 0     #最小等待连接中的数量,设 0 为没有限制
+      shutdown-timeout: 100ms
+    password: ''
+    port: 6379
+
+
+server:
+  port: 8090
+
+
+#rsa加密配置
 rsa:
   encrypt:
-    debug: false # true��ʾ�������ԣ������ܡ������㿪��ʱ���ԣ�
+    debug: false
     publicKey: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDWVoGPPxAYp9A3R7sX1gZFVMm13AUIfn5gYBv8/lfn9RrzXqux6kDrh8ysvKRjd0YSqE3hYPgK0JLy7eweV4AcsuRKmDaXf/NUgCQbmCXQM7UfMZvwed4FKoYNnvbixwq8AV+HQQjGLip8FUDlizES8GRN7pEODbB+rruToRiGNQIDAQAB
-#      -----END PUBLIC KEY-----
-    # ����Ϊ�Լ��Ĺ�Կ
+    #      -----END PUBLIC KEY-----
     privateKey: MIICeQIBADANBgkqhkiG9w0BAQEFAASCAmMwggJfAgEAAoGBANZWgY8/EBin0DdH
       uxfWBkVUybXcBQh+fmBgG/z+V+f1GvNeq7HqQOuHzKy8pGN3RhKoTeFg+ArQkvLt
       7B5XgByy5EqYNpd/81SAJBuYJdAztR8xm/B53gUqhg2e9uLHCrwBX4dBCMYuKnwV
@@ -18,6 +46,4 @@ rsa:
       mxJAEQ1Vfc6nUp1CnNvaWGYwvDpJ/2+X5WeYaXz35J3XXWgCPeMu1HSRAkEAgmhx
       rwShZsjCeE+Pyqg5Wh/a/r2+Ek68m1B+GSnoR58kLv+lhIKnc6baRaHQJJdrtAzH
       BlZVJ5JhfNVgQGCuJQ==
-    # ����Ϊ�Լ�����Կ
-server:
-  port: 8080
+
