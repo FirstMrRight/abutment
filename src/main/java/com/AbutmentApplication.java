@@ -5,12 +5,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-
-@EnableSecurity
+import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
-@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
+//@EnableAutoConfiguration
 public class AbutmentApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(AbutmentApplication.class, args);
     }

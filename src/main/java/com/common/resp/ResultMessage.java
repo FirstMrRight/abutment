@@ -11,6 +11,7 @@ import java.io.Serializable;
 
 /**
  * 结果消息
+ * @author Liu-PC
  */
 @Data
 @Accessors(chain = true)
